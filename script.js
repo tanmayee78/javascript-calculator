@@ -1,18 +1,14 @@
-// Select all necessary elements
 const calculator = document.querySelector('.calculator');
 const display = calculator.querySelector('input');
 
-// Initialize variables to keep track of operations
 let currentValue = '';
 let previousValue = '';
 let operator = null;
 
-// Update display function
 function updateDisplay(value) {
   display.value = value || '0';
 }
 
-// Clear all inputs
 function clearAll() {
   currentValue = '';
   previousValue = '';
@@ -20,13 +16,11 @@ function clearAll() {
   updateDisplay('');
 }
 
-// Delete last character
 function deleteLast() {
   currentValue = currentValue.slice(0, -1);
   updateDisplay(currentValue);
 }
 
-// Perform calculation
 function calculate() {
   const num1 = parseFloat(previousValue);
   const num2 = parseFloat(currentValue);
@@ -61,19 +55,17 @@ function calculate() {
   updateDisplay(currentValue);
 }
 
-// Add number or decimal point to the display
 function handleNumberInput(value) {
   if (value === '.' && currentValue.includes('.')) return;
   currentValue += value;
   updateDisplay(currentValue);
 }
 
-// Handle operator input
 function handleOperatorInput(op) {
   if (currentValue === '') return;
 
   if (previousValue !== '') {
-    calculate(); // Perform calculation if there's an ongoing operation
+    calculate(); 
   }
 
   operator = op;
@@ -81,7 +73,7 @@ function handleOperatorInput(op) {
   currentValue = '';
 }
 
-// Handle special buttons
+
 function handleSpecialInput(value) {
   switch (value) {
     case '1/x':
@@ -100,31 +92,31 @@ function handleSpecialInput(value) {
   updateDisplay(currentValue);
 }
 
-// Add event listeners to all buttons
+
 calculator.addEventListener('click', (e) => {
   const target = e.target;
 
-  if (target.tagName !== 'BUTTON') return; // Ignore clicks outside buttons
+  if (target.tagName !== 'BUTTON') return; 
 
   const value = target.textContent;
 
   if (!isNaN(value) || value === '.') {
-    // If it's a number or decimal
+    
     handleNumberInput(value);
   } else if (['+', '-', '*', '/', '%'].includes(value)) {
-    // If it's an operator
+   
     handleOperatorInput(value);
   } else if (value === '=') {
-    // Equal button
+    
     calculate();
   } else if (value === 'C') {
-    // Clear button
+    
     clearAll();
   } else if (value === 'CE' || value === '←') {
-    // Delete button
+    
     deleteLast();
   } else {
-    // Special buttons (e.g., 1/x, x², √x)
+    
     handleSpecialInput(value);
   }
 });
