@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #0a0a0a, #3a4452);
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Calculator Container */
+.calculator {
+  width: 320px;
+  background: linear-gradient(315deg, #0a0a0a, #3a4452);
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* Input Display */
+.calculator input {
+  width: 100%;
+  height: 70px;
+  border: none;
+  text-align: right;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  box-sizing: border-box;
+  background-color: #1f1f1f;
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  outline: none;
+}
+
+/* Button Layout */
+.calculator div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Buttons */
+button {
+  height: 60px;
+  font-size: 18px;
+  border: none;
+  background-color: #404040;
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.3s ease;
+  margin-bottom: 5px;
+  padding: 20px;
+}
+
+button.special {
+  background-color: #f1c40f;
+  color: black;
+}
+
+button.special:hover {
+  background-color: #f39c12;
+}
+
+button.special:active {
+  background-color: #e67e22;
+  transform: scale(0.95);
+}
+
+button.clear {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.clear:hover {
+  background-color: #c0392b;
+}
+
+button.clear:active {
+  background-color: #a93226;
+  transform: scale(0.95);
+}
+
+button.backspace {
+  background-color: #9b59b6;
+  color: white;
+}
+
+button.backspace:hover {
+  background-color: #8e44ad;
+}
+
+button.backspace:active {
+  background-color: #7d3c98;
+  transform: scale(0.95);
+}
+
+button.equal {
+  background-color: #27ae60;
+  color: white;
+  font-weight: bold;
+}
+
+button.equal:hover {
+  background-color: #2ecc71;
+}
+
+button.equal:active {
+  background-color: #16a085;
+  transform: scale(0.95);
+}
+
+button.wide {
+  grid-column: span 1;
+  background-color: #95a5a6;
+  color: white;
+}
+
+button.wide:hover {
+  background-color: #7f8c8d;
+}
+
+button.wide:active {
+  background-color: #34495e;
+  transform: scale(0.95);
+}
+
+button:not(.special):not(.clear):not(.backspace):not(.equal):not(.wide) {
+  background-color: #3498db;
+  color: white;
+}
+
+button:not(.special):not(.clear):not(.backspace):not(.equal):not(.wide):hover {
+  background-color: #2980b9;
+}
+
+button:not(.special):not(.clear):not(.backspace):not(.equal):not(.wide):active {
+  background-color: #2471a3;
+  transform: scale(0.95);
+}
